@@ -17,13 +17,27 @@
         private string $username = 'root';
         private string $password = '';
 
+
+        /**
+         * Selecting data from database
+         *
+         * @param string $table
+         * @param $data
+         *
+         * @return null|array
+         */
         public function select(string $table, $data)
         : ?array
         {
             return $this->medoo()->select($table, $data);
         }
 
-        // Here I return an instance of Medoo a database library
+
+        /**
+         * Here I return an instance of Medoo a database library
+         *
+         * @return \Medoo\Medoo
+         */
         public function medoo()
         : Medoo
         {
@@ -37,7 +51,12 @@
                 ]);
         }
 
-        // Here I create a users table in the database.
+
+        /**
+         * Here I create a users table in the database.
+         *
+         * @return \PDOStatement
+         */
         public function createUsersTable()
         : PDOStatement
         {
