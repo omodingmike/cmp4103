@@ -1,11 +1,7 @@
 <?php
 
     namespace CMP4103\Database;
-    //    require '../../vendor/autoload.php';
     require 'vendor/autoload.php';
-
-    // Require Composer's autoloader.
-//    require 'vendor/autoload.php';
 
     use Medoo\Medoo;
     use PDOStatement;
