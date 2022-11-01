@@ -1,0 +1,11 @@
+{
+  "require": {
+    "catfan/medoo": "^2.1",
+    "ext-pdo": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "CMP4103\\": "app/"
+    }
+  }
+}
