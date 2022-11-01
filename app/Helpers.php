@@ -8,6 +8,8 @@
     {
 
         /**
+         * Username validation Logic
+         *
          * @param string $username
          *
          * @return array
@@ -29,6 +31,15 @@
             return $errors;
         }
 
+
+        /**
+         * Validating user password
+         *
+         * @param string $password
+         * @param string $confirm_password
+         *
+         * @return array
+         */
         public static function validatePassword(string $password, string $confirm_password)
         : array
         {

@@ -3,22 +3,29 @@
 
     use CMP4103\Database\Database;
 
+    // check if a user is logged in
     if (isset($_SESSION['logged_in'])) {
         header('Location: dashboard.php');
     }
+
+    // Autoload all the classes with composer
     require_once 'vendor/autoload.php';
     $database = new Database;
-    $message  = [];
+
+    $message = [];
+    // checking whether a user is trying to login
     if (isset($_POST['username']) and isset($_POST['password'])) {
         $username = $_POST['username'];
         $password = $_POST['password'];
 
+        // getting user with the provided username
         $user = $database->medoo()->select('users', "*",
             [
                 'username' => $username,
             ]
         );
         if ($user) {
+            // Verifying provided password and one from database
             if (password_verify($password, $user[0]['password'])) {
                 $_SESSION['logged_in'] = true;
                 $message['success']    = 'Login successful';
@@ -89,6 +96,7 @@
 <script src='app/js/sweetalert2.all.min.js'></script>
 
 <script>
+    // Toggling Password view mode while typing
     jQuery(function ($) {
         $('#toggle').on('click', function (event) {
             $('#eye').toggleClass('fa-eye-slash fa-eye');
@@ -103,7 +111,9 @@
     });
 </script>
 
+
 <?php
+    // Show alert dialog in case of invalid login credentials.
     if (isset($message['error'])) {
         ?>
         <script>

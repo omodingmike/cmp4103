@@ -12,6 +12,9 @@
 
     class Database
     {
+        /**
+         * Database configuration
+         */
         private string $type = 'mysql';
         private string $host = 'localhost';
         private string $database = 'cmp4103';
@@ -24,6 +27,7 @@
             return $this->medoo()->select($table, $data);
         }
 
+        // Here I return an instance of Medoo a database library
         public function medoo()
         : Medoo
         {
@@ -37,6 +41,7 @@
                 ]);
         }
 
+        // Here I create a users table in the database.
         public function createUsersTable()
         : PDOStatement
         {

@@ -4,5 +4,7 @@
 
     require_once 'vendor/autoload.php';
 
+    // Creating users table in database
+
     $database = new Database;
     $database->createUsersTable();

@@ -1,5 +1,6 @@
 <?php
     session_start();
+    // check if user is logged in otherwise redirect to index page
     if (!isset($_SESSION['logged_in'])) {
         header("Location: index.php");
     }
