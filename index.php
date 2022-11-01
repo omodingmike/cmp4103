@@ -42,6 +42,13 @@
     <link rel='stylesheet' href='app/css/bootstrap.min.css'>
     <link rel='stylesheet' href='app/css/custom.css'>
     <link rel='stylesheet' href='app/css/sweetalert2.min.css'>
+    <script src='https://kit.fontawesome.com/61df0a3319.js' crossorigin='anonymous'></script>
+    <style>
+        .togglePassword {
+            margin-left: -30px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
 <div class="container">
@@ -57,7 +64,11 @@
 
                 <div class="mb-3">
                     <label for="password" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="password" name="password">
+                    <div class="input-group">
+                        <input type='password' class='form-control' id='password' name='password'>
+                        <a href='' class='btn btn-outline-secondary' id='toggle' type='button'><i id='eye'
+                                                                                                  class='fa-regular fa-eye'></i></a>
+                    </div>
                 </div>
                 <div class="mb-3">
                     <a href="register.php" class="text-decoration-none">I do not have an account</a>
@@ -70,9 +81,27 @@
 
 </div>
 
+<!--<i class='fa-regular fa-eye'></i>-->
+<!--<i class='fa-solid fa-eye-slash'></i>-->
+
 <script src='app/js/jquery-3.6.0.min.js'></script>
 <script src='app/js/bootstrap.bundle.min.js'></script>
 <script src='app/js/sweetalert2.all.min.js'></script>
+
+<script>
+    jQuery(function ($) {
+        $('#toggle').on('click', function (event) {
+            $('#eye').toggleClass('fa-eye-slash fa-eye');
+            const password = $('#password')
+            if (password.attr('type') === 'password') {
+                password.attr('type', 'text')
+            } else {
+                password.attr('type', 'password')
+            }
+            event.preventDefault()
+        });
+    });
+</script>
 
 <?php
     if (isset($message['error'])) {
