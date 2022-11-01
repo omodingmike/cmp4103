@@ -1,2 +1,2 @@
-# cmp4103
+# CMP4103 Assignment project
  
