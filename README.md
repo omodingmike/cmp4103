@@ -2,6 +2,8 @@
  
 Installation
 
+NB. You a local server like xampp, wamp server, laragon etc
+
 1. Clone the repo
 2. run comoser update
 3. Edit Database configurations in Database.php in app/Database.
